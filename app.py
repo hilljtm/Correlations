@@ -10,9 +10,9 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/research')
-def research():
-    return render_template('research.html')
+@app.route('/gold')
+def gold():
+    return render_template('gold.html')
 
 @app.route('/spindex')
 def spindex():

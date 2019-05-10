@@ -66,6 +66,15 @@ div.spindex {
     border-radius: 6px;
 }
 
+div.container {
+    align-content: center;
+}
+
+img.pearson {
+    width: 25;
+    height: 25%;
+}
+
 h2 {
     font-size: 3em;
     margin-top: 40px;
