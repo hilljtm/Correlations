@@ -10,5 +10,14 @@ def home():
 def about():
     return render_template('about.html')
 
+@app.route('/research')
+def research():
+    return render_template('research.html')
+
+@app.route('/spindex')
+def spindex():
+    return render_template('spindex.html')
+
+    
 if __name__ == '__main__':
     app.run(debug=True)
