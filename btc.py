@@ -1,21 +1,10 @@
-#%%
-import numpy as np
+# %%
+import json
+import requests
+import datetime
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 
-
-
-#send get request 
-N = 500
-x = np.random.rand(N)
-y = np.random.rand(N)
-area = np.pi*3
-
-
-plt.scatter(x, y, s=area, alpha=0.5)
-plt.title('scatter')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
+url = 'https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=10'
+r = requests.get(url)
+data = r.json()
 

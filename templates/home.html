@@ -6,22 +6,24 @@
     <p>Hello, let's explore some Correlations. First let's explain what the heck correlations are. Correlation - "A
         mutual relationship or connection between two or more things." We will be looking at Pearson's correlation
         coefficient. If your lost already don't worry, I was too. </p>
-    <p> Pearson's correlation coefficient attempts to draw a line of the best fit through the data of two variables, and
-        the Pearson correlation coefficient is a measure of linear relationship between the variables. The stronger the
-        association of the two variables, the closer the Pearson correlation coefficient will be to either +1 or -1
-        depending on whether the relationship is positive or negative.</p>
+    <p> Pearson's correlation coefficient attempts to draw a line of the best fit through the data of two <u>linear</u>
+        variables, and the Pearson correlation coefficient is a measure of the <u>linear</u> relationship between the variables. The stronger the association of the two variables the closer the Pearson correlation coefficient will be to either +1 or -1 depending on whether the relationship is positive or negative.
+    </p>
     <p>Achieving a value of +1 or -1 means that all your data points are included on the line of best fit, there are no
         data points that show any variation away from this line. The closer the value to 0 the greater the variation
         between the two variables.</p>
-    <p>For the majority of our research we are going to be comparing Bitcoin vs other assets as our two variables The
-        correlation coefficient is calculated by taking the covariance of two assets and then dividing that by the
-        product of their standard deviations (volatility).</p>
-    <div class="container">
-    <img class="pearson", src="/static/pearson.png">
-    </div>
+    <p>For the majority of our research we are going to be comparing Bitcoin vs other assets as our two variables. To
+        calculate the Pearson correlation we must first determine the covariance of our two variables, next we must
+        calculate each variables standard deviation. The correlation coefficient is determined by dividing the
+        covariance by the product of the two variables standard deviations.</p>
+    <p>Standard deviation is a measure of the dispersion of data from it's average. Covariance is a measure of how two
+        variables change together, but it's magnitude is unbounded, thus it is difficult to interpret. Dividing
+        covariance by the product of the two standard deviations, we can calculate the normalized version of the
+        statistic (correlation coefficient). You still with me? Let's look at some graphs that will make it a bit easier to understand.</p>
 
-    <p>DISCLAIMER : One thing to note - Outliers can effect the correlations but let's not get into that. First we will
-        use a scatter plot, followed by a Bland-Altman plot. </p>
+    <img id="pearson" , src="/static/pearson.png" alt="pearson">
+
+    <p>DISCLAIMER : One thing to note - Outliers can effect the correlations but let's not dive too deep into that right now.  </p>
 </div>
 
 {% endblock %}
