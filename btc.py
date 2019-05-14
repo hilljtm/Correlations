@@ -14,3 +14,4 @@ pd.DataFrame(data, columns=['Last'])
 plt.rcParams["figure.figsize"] = [16,9]
 plt.plot(data)
 
+
