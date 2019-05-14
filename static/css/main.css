@@ -82,6 +82,11 @@ img[src="/static/pearson.png"] {
     margin-left: 25%;
 }
 
+img[src="/static/gold_btc.png"] {
+    width: 50%;
+    height: 75%;
+}
+
 h2 {
     font-size: 3em;
     margin-top: 40px;
