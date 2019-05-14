@@ -6,11 +6,24 @@ import numpy as np
 import seaborn as sns
 
 
-quandl.ApiConfig.api_key = 'W6U4YhAz2q7bigp7tQge'
-data = quandl.get("WGC/GOLD_DAILY_USD", start_date="2016-01-01")
+quandl.ApiConfig.api_key = 'YOUR_KEY'
+gold = quandl.get("WGC/GOLD_DAILY_USD", start_date='2016-01-05')
+btc = quandl.get("BITFINEX/BTCUSD", start_date='2016-01-05')
+btc = btc[['High']]
 
-g = sns.relplot(kind='line', data=data)
-g.fig.autofmt_xdate()
-plt.plot()
 
-#saving figure into a bytes object and you can expose it after
+plt.subplot(2, 1, 1)
+plt.plot(gold.index, gold)
+
+plt.xticks(gold.index[0::80], [])
+
+
+plt.title('Gold vs BTC')
+plt.ylabel('% Gold')
+plt.subplot(2, 1, 2)
+plt.plot(btc.index, btc)
+
+plt.xlabel('year')
+plt.ylabel('% BTC')
+plt.savefig('gold_btc.png', facecolor='w', edgecolor='w', bbox_inches='tight')
+plt.show()

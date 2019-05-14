@@ -7,7 +7,7 @@ import seaborn as sns
 sns.set()
 
 #using quandl API, returning only last price
-quandl.ApiConfig.api_key = 'API_KEY'
+quandl.ApiConfig.api_key = 'YOUR_KEY'
 data = quandl.get("BITFINEX/BTCUSD", start_date="2016-01-01")
 data = data[["Last"]]
 pd.DataFrame(data, columns=['Last'])
