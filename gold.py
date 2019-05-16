@@ -6,24 +6,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-quandl.ApiConfig.api_key = 'YOUR_KEY'
-gold = quandl.get("WGC/GOLD_DAILY_USD", start_date='2016-01-05')
-btc = quandl.get("BITFINEX/BTCUSD", start_date='2016-01-05')
-btc = btc[['High']]
+quandl.ApiConfig.api_key = 'W6U4YhAz2q7bigp7tQge'
 
 
-plt.subplot(2, 1, 1)
-plt.plot(gold.index, gold)
+gold = quandl.get("WGC/GOLD_DAILY_USD", start_date='2016-01-05', end_date='2019-05-10')
+btc = quandl.get("BITFINEX/BTCUSD", start_date='2016-01-05', end_date='2019-05-10')
+df1 = pd.DataFrame(data=gold)
+df = pd.DataFrame(data=btc, columns=['High'])
 
-plt.xticks(gold.index[0::80], [])
-
-
-plt.title('Gold vs BTC')
-plt.ylabel('% Gold')
-plt.subplot(2, 1, 2)
-plt.plot(btc.index, btc)
-
-plt.xlabel('year')
-plt.ylabel('% BTC')
-plt.savefig('gold_btc.png', facecolor='w', edgecolor='w', bbox_inches='tight')
-plt.show()
