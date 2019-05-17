@@ -4,6 +4,7 @@ import quandl
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+plt.style.use('seaborn-whitegrid')
 import seaborn as sns
 
 
@@ -15,4 +16,13 @@ df1 = pd.DataFrame(data=gold)
 df = pd.DataFrame(data=btc)
 
 horizontal_stack = pd.concat([df1, df], axis=1)
-print(horizontal_stack) 
+print(horizontal_stack)
+
+fig = plt.figure()
+ax = plt.axis()
+
+plt.rcParams["figure.figsize"] = [16, 9]
+plt.title("GOLD&BTC")
+plt.xlabel("Date")
+plt.ylabel("$Price")
+plt.show()

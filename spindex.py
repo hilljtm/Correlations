@@ -2,20 +2,21 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 plt.style.use('seaborn-whitegrid')
-import seaborn
+import seaborn as sns
 
+fig = plt.figure()
+ax = plt.axis()
 
-
-df = pd.read_csv("sp500.csv")
+data = pd.read_csv("sp500.csv")
+df = pd.DataFrame(data)
 
 x = df['Date']
 y = df['Price']
 
-plt.plot(x, y)
-plt.grid(color='gray', linestyle='solid')
+plt.rcParams["figure.figsize"] = [16,9]
+plt.title("S&P500")
 plt.xlabel('Date')
-plt.ylabel('Price')
-plt.show()
+plt.ylabel('$Price')
+plt.plot(x, y)
 
