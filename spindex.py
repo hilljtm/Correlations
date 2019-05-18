@@ -25,7 +25,6 @@ plt.tight_layout()
 
 plt.subplot(2, 1, 1)
 plt.plot(sp.index, sp)
-
 plt.xticks(sp.index[0::80], [])
 
 
