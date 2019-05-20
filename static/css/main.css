@@ -75,6 +75,14 @@ div.spindex {
     border-radius: 6px;
 }
 
+div.faang {
+    padding: 10px 0 30px 0;
+    background-color: #E6E6FA;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
 
 img[src="/static/pearson.png"] {
     width: 25%;

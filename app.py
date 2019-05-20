@@ -18,6 +18,10 @@ def gold():
 def spindex():
     return render_template('spindex.html')
 
+@app.route('/faang')
+def faang():
+    return render_template ('faang.html')
+
     
 if __name__ == '__main__':
     app.run(debug=True)

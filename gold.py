@@ -26,11 +26,11 @@ plt.xticks(gold.index[0::85], [])
 
 
 plt.title('Gold vs BTC')
-plt.ylabel('% Gold')
+plt.ylabel('Gold')
 plt.subplot(2, 1, 2)
 plt.plot(btc.index, btc)
 
 plt.xlabel('year')
-plt.ylabel('% BTC')
+plt.ylabel('BTC')
 plt.savefig('gold_btc.png', facecolor='w', edgecolor='w', bbox_inches='tight')
 plt.show()
