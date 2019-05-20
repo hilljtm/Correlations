@@ -1,11 +1,13 @@
-#%%
+# %%
+import seaborn as sns
 import config
 import quandl
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('seaborn-whitegrid')
-import seaborn as sns
+import matplotlib as mpl
+mpl.rcParams['figure.dpi'] = 300
+plt.style.use('seaborn')
 
 
 quandl.ApiConfig.api_key = config.api_key
@@ -17,11 +19,15 @@ df = pd.DataFrame(data=btc)
 
 
 # horizontal_stack = pd.concat([df1, df], axis=1) --> not sure this is even needed
+fig, ax = plt.subplots()
+plt.xticks(rotation=90)
+plt.tight_layout()
+
 
 plt.subplot(2, 1, 1)
 plt.plot(gold.index, gold)
 
-#TODO find out how to make graphs match, solve the NaN issue
+
 plt.xticks(gold.index[0::85], [])
 
 

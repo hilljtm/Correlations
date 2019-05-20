@@ -1,25 +1,19 @@
 # %%
+import config
+import seaborn as sns
+import pandas as pd
+import numpy as np
 import quandl
 import matplotlib.pyplot as plt
 from matplotlib import style
-import numpy as np
-import pandas as pd
-import seaborn as sns
-import config
-
-style.use('seaborn-whitegrid')
-
-quandl.ApiConfig.api_key = config.api_key
-
-data = quandl.get_table('WIKI/PRICES', ticker=['FB', 'AAPL', 'AMZN', 'NFLX', 'GOOG'], qopts={'columns': [
-                        'ticker', 'date', 'adj_close']}, date={'gte': '2016-01-05', 'lte': '2018-03-27'}, paginate=True)
-                        
-btc = quandl.get("BITFINEX/BTCUSD", column_index='1', start_date="2016-01-01")
-
-new = data.set_index('date')
+import matplotlib as mpl
+mpl.rcParams['figure.dpi'] = 300
+plt.style.use('seaborn')
 
 
-clean = new.pivot(columns='ticker')
+df = pd.read_csv("faangfinal.csv", index_col='Date', parse_dates=['Date'])
+
+btc = quandl.get("BITFINEX/BTCUSD", column_index='1', start_date="2016-01-05")
 
 
 fig, ax = plt.subplots()
@@ -28,11 +22,9 @@ plt.tight_layout()
 
 
 plt.subplot(2, 1, 1)
-plt.plot(clean.index, clean)
+plt.plot(df)
 
-#change y ticks so faang graph isnt flat
-plt.xticks(clean.index[0::85], [])
-
+# change y ticks so faang graph isnt flat
 
 plt.title('FAANG vs BTC')
 plt.ylabel('FAANG')

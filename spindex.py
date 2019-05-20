@@ -1,12 +1,14 @@
-#%%
+# %%
+import seaborn as sns
 import config
-import quandl 
+import quandl
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-plt.style.use('seaborn-whitegrid')
-import seaborn as sns
+import matplotlib as mpl
+mpl.rcParams['figure.dpi'] = 300
+plt.style.use('seaborn')
 
 quandl.ApiConfig.api_key = config.api_key
 
@@ -16,7 +18,7 @@ df1 = pd.DataFrame(btc)
 data = pd.read_csv("sp500.csv", index_col=0)
 sp = pd.DataFrame(data)
 
-#Not sure I even need to concat these
+# Not sure I even need to concat these
 #newspindex = pd.merge(df1, sp, left_index=True, right_index=True, how='left')
 #newspindex.index.names = ['Date']
 
@@ -40,7 +42,7 @@ plt.subplot(2, 1, 2)
 plt.plot(btc.index, btc)
 
 fig.autofmt_xdate()
-plt.xlabel('year')
+plt.xlabel('')
 plt.ylabel('BTC')
 plt.savefig('sp500_btc.png', facecolor='w', edgecolor='w', bbox_inches='tight')
 plt.show()
