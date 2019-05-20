@@ -7,7 +7,7 @@ import pandas as pd
 import seaborn as sns
 import config
 
-style.use('seaborn')
+style.use('seaborn-whitegrid')
 
 quandl.ApiConfig.api_key = config.api_key
 
@@ -42,5 +42,5 @@ plt.plot(btc.index, btc)
 fig.autofmt_xdate()
 plt.xlabel('year')
 plt.ylabel('BTC')
-#plt.savefig('faang_btc.png', facecolor='w', edgecolor='w', bbox_inches='tight')
+plt.savefig('faang_btc.png', facecolor='w', edgecolor='w', bbox_inches='tight')
 plt.show()
