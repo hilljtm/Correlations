@@ -25,4 +25,4 @@ def btcgcor():
     df2['btc'].plot()
     #df2_corr = df2.corr()
 
-#joinedgbtc()
+# joinedgbtc()
