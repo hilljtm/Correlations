@@ -111,8 +111,13 @@ img[src="/static/faangmath.png"] {
 }
 
 img[src="/static/faangcorco.png"] {
+    width: 50%;
+    height:7 5%;
+}
+
+img[src="/static/spincorr.png"] {
     width:50%;
-    height:75%;
+    height: 75%;
 }
 
 h2 {
