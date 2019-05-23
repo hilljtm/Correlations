@@ -110,6 +110,11 @@ img[src="/static/faangmath.png"] {
     height: 75%;
 }
 
+img[src="/static/faangcorco.png"] {
+    width:50%;
+    height:75%;
+}
+
 h2 {
     font-size: 3em;
     margin-top: 40px;
