@@ -95,6 +95,11 @@ img[src="/static/gold_btc.png"] {
     height: 75%;
 }
 
+img[src="/static/goldcorr.png"] {
+    width: 50%;
+    height: 75%;
+}
+
 img[src="/static/sp500_btc.png"] {
     width: 50%;
     height:75%;

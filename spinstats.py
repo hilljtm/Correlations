@@ -5,20 +5,20 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 from app import spindex
-import os
-import sys
-sys.path.append("/Users/joeyhill/Desktop/Correlations/spindex.py")
 mpl.rcParams['figure.dpi'] = 300
 sns.set_style('whitegrid', {"axes.facecolor": ".9"})
 
-spdf = pd.read_csv("sp500.csv", index_col='Date', parse_dates=['Date'])
+sp = pd.read_csv("sp500.csv", index_col='Date', parse_dates=['Date'])
 
 sbtc = pd.read_csv("btcprice.csv", index_col='Date', parse_dates=['Date'])
 
-spbtc = spdf.merge(sbtc, on=['Date'])
+# merging sp and btc files
+spbtc = sp.merge(sbtc, on=['Date'])
 spbtc.corr(method='pearson')
 spbtc.corr()
 
+
+# plotting correlation using seaborn
 
 def corr(x, y, **kwargs):
     coef = np.corrcoef(x, y)[0][1]
@@ -28,7 +28,7 @@ def corr(x, y, **kwargs):
     ax.annotate(label, xy=(0.2, 0.95), size=10, xycoords=ax.transAxes)
 
 
-grid = sns.PairGrid(data=spbtc, vars=['Price', 'BTC'], size=4)
+grid = sns.PairGrid(data=spbtc, vars=['SP500', 'BTC'], size=4)
 
 grid = grid.map_upper(plt.scatter, color='darkred')
 gird = grid.map_upper(corr)

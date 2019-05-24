@@ -12,13 +12,20 @@ plt.style.use('seaborn')
 
 quandl.ApiConfig.api_key = config.api_key
 
+# quandl api get request, saving into csv file
 gold = quandl.get("WGC/GOLD_DAILY_USD", start_date='2016-01-05')
-btc = quandl.get("BITFINEX/BTCUSD", column_index='1', start_date='2016-01-05')
+gold.to_csv('gold.csv')
+
+# reading csv file
+gold = pd.read_csv("gold.csv", index_col='Date', parse_dates=['Date'])
+
+btc = pd.read_csv("btcprice.csv", index_col='Date', parse_dates=['Date'])
+
 df1 = pd.DataFrame(data=gold)
 df = pd.DataFrame(data=btc)
 
 
-# horizontal_stack = pd.concat([df1, df], axis=1) --> not sure this is even needed
+# setting matplotlib plot
 fig, ax = plt.subplots()
 plt.xticks(rotation=90)
 plt.tight_layout()

@@ -22,11 +22,6 @@ df1.to_csv('btcprice.csv')
 df1 = pd.read_csv("btcprice.csv", index_col='Date', parse_dates=['Date'])
 
 
-# df3 = df.merge(df1, on=['Date'])
-# df3.std()
-# df3[['FAANG', 'BTC']].cov()
-
-
 fig, ax = plt.subplots()
 plt.xticks(rotation=90)
 plt.tight_layout()

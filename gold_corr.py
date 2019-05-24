@@ -1,24 +1,28 @@
 # %%
-import seaborn as sns
-import config
-import quandl
-import pandas as pd
+import matplotlib as mpl
 import numpy as np
+import seaborn as sns
 import matplotlib.pyplot as plt
-plt.style.use('seaborn-whitegrid')
+import pandas as pd
+from app import gold
+mpl.rcParams['figure.dpi'] = 300
+sns.set_style('whitegrid', {"axes.facecolor": ".9"})
 
 
-quandl.ApiConfig.api_key = config.api_key
+gold = pd.read_csv("gold.csv", index_col='Date', parse_dates=['Date'])
 
-gold = quandl.get("WGC/GOLD_DAILY_USD", start_date='2016-01-05')
+btc = pd.read_csv("btcprice.csv", index_col='Date', parse_dates=['Date'])
+
+gold = pd.DataFrame(data=gold)
+btc = pd.DataFrame(data=btc)
+
+# merging gold and btc files
+gbdf = gold.merge(btc, on=['Date'])
+gbdf.corr(method='pearson')
+gbdf.corr()
 
 
-btc = pd.read_csv("btcprice.csv", index_col='Date', parse_dates=['Dates'])
-df1 = pd.DataFrame(data=gold)
-df = pd.DataFrame(data=btc)
-
-#Export gold to csv, clean NaN columns, merge btc and gold
-gbdf = pd.merge
+# plotting correlation using seaborn
 
 def corr(x, y, **kwargs):
     coef = np.corrcoef(x, y)[0][1]
@@ -28,10 +32,12 @@ def corr(x, y, **kwargs):
     ax.annotate(label, xy=(0.2, 0.95), size=10, xycoords=ax.transAxes)
 
 
-grid = sns.PairGrid(data=df, vars=['GOLD', 'BTC'], size=4)
+grid = sns.PairGrid(data=gbdf, vars=['GOLD', 'BTC'], size=4)
 
 grid = grid.map_upper(plt.scatter, color='darkred')
 gird = grid.map_upper(corr)
 grid = grid.map_lower(sns.kdeplot, cmap='Reds')
 grid = grid.map_diag(plt.hist, bins=10, edgecolor='k', color='darkred')
 
+plt.savefig('goldcorr.png', facecolor='w',
+            edgecolor='w', bbox_inches='tight')

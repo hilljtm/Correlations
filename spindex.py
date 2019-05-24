@@ -12,17 +12,14 @@ plt.style.use('seaborn')
 
 quandl.ApiConfig.api_key = config.api_key
 
+btc = pd.read_csv("btcprice.csv", index_col='Date', parse_dates=['Date'])
 
-btc = quandl.get("BITFINEX/BTCUSD", column_index='1', start_date='2016-01-05')
-df1 = pd.DataFrame(btc)
-data = pd.read_csv("sp500.csv", index_col=0)
-sp = pd.DataFrame(data)
+sp = pd.read_csv("sp500.csv", index_col='Date', parse_dates=['Date'])
 
-# Not sure I even need to concat these
-#newspindex = pd.merge(df1, sp, left_index=True, right_index=True, how='left')
-#newspindex.index.names = ['Date']
+sp = pd.DataFrame(sp)
+btc = pd.DataFrame(btc)
 
-
+# setting matplotlib plot
 fig, ax = plt.subplots()
 myFmt = mdates.DateFormatter('%d')
 ax.xaxis.set_major_formatter(myFmt)
