@@ -31,7 +31,7 @@ def corr(x, y, **kwargs):
 grid = sns.PairGrid(data=spbtc, vars=['SP500', 'BTC'], size=4)
 
 grid = grid.map_upper(plt.scatter, color='darkred')
-gird = grid.map_upper(corr)
+grid = grid.map_upper(corr)
 grid = grid.map_lower(sns.kdeplot, cmap='Reds')
 grid = grid.map_diag(plt.hist, bins=10, edgecolor='k', color='darkred')
 
